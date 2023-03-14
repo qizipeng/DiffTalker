@@ -1,0 +1,830 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="IRT.">
+  <meta name="keywords" content="NeRF, Inpainting, Segmentation, Perceptual Loss, LPIPS, Multli-View Inpainting, View Consistency, 3D Reconstruction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRT</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title text-muted">
+            <span class="text-primary">߷</span>
+            <span class="text-dark">Implicit Ray-Transformers</span> for <span class="text-dark">M</span>ulti <span class="text-dark">V</span>iew <span class="text-dark">R</span>emote <span class="text-dark">S</span>ensing <span class="text-dark">I</span>mage <span class="text-dark">S</span>egementation
+          </h1>
+          <p class="is-size-5 text-center">
+	            Not yet have pushblished
+		      </p>
+
+          <!-- <p class="is-size-5 text-center">
+            arXiv
+          </p> -->
+
+           <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=z8GwuTgAAAAJ&hl=en">Zipeng Qi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.ca/citations?user=mV9zdJMAAAAJ&hl=en">Hao Chen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=3Br8x_gAAAAJ&hl=en&oi=ao">Chenyang Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=KtSR8_0AAAAJ&hl=en">Zhenwei Shi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.ca/citations?user=x2wyjkAAAAAJ&hl=en">Zouzheng Xia</a><sup>1</sup>,
+            </span>
+          </div>
+
+
+
+
+
+<!--          <div class="is-size-5 publication-authors">-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.com/citations?user=z8GwuTgAAAAJ&hl=en">Ashkan Mirzaei</a><sup>1,2</sup>,</span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.ca/citations?user=mV9zdJMAAAAJ&hl=en">Tristan Aumentado-Armstrong</a><sup>1,2,4</sup>,</span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.com/citations?user=3Br8x_gAAAAJ&hl=en&oi=ao">Konstantinos G. Derpanis</a><sup>1,3,4</sup>,-->
+<!--            </span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.com/citations?user=KtSR8_0AAAAJ&hl=en">Jonathan Kelly</a><sup>2</sup>,-->
+<!--            </span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.ca/citations?user=x2wyjkAAAAAJ&hl=en">Marcus A. Brubaker</a><sup>1,3,4</sup>,-->
+<!--            </span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.com/citations?user=Nuw1Y4oAAAAJ&hl=en">Igor Gilitschenski</a><sup>2</sup>,-->
+<!--            </span>-->
+<!--            <span class="author-block">-->
+<!--              <a href="https://scholar.google.com/citations?user=7EFMKWUAAAAJ&hl=en">Alex Levinshtein</a><sup>1</sup>-->
+<!--            </span>-->
+<!--          </div>-->
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block text-muted">{qizipeng}@buaa.edu.cn,</span>
+<!--            <span class="author-block text-muted">tristan.a@partner.samsung.com,</span>-->
+<!--            <span class="author-block text-muted">{kosta,mab}@eecs.yorku.ca,</span>-->
+<!--            <span class="author-block text-muted">alex.lev@samsung.com</span>-->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Beihang University,</span>
+<!--            <span class="author-block"><sup>2</sup>University of Toronto,</span>-->
+<!--            <span class="author-block"><sup>3</sup>York University,</span>-->
+<!--            <span class="author-block"><sup>4</sup>Vector Institute for AI</span>-->
+            <!-- </br>
+            <span class="author-block"><sup>*</sup>Denotes equal contribution</span> -->
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2211.12254"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+<!--               <span class="link-block">-->
+<!--                <a href="paper.pdf"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fas fa-file-pdf"></i>-->
+<!--                  </span>-->
+<!--                  <span>Paper (High-Quality)</span>-->
+<!--                </a>-->
+<!--              </span>-->
+<!--              <span class="link-block">-->
+<!--                <a href="https://youtu.be/WEgJf1WC5SQ"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <span class="link-block">
+                <a href="code link"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="dataset link" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content">
+          <img src="my_data/motivation.PNG" width="70%"/>
+        </div>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+           The mainstream segmentation methods benefit from the deep convolution neural networks (CNN), which can effectively learn and extract robust and discriminative features from the input images. However, deep CNN-based remote sensing image segmentation methods rely heavily on massive training data. As shown in Fig.(a), the performance of traditional CNN-based methods is sensitive to the number of annotations. A large number of high-quality pixel-wise annotations, as a guarantee for the performance of CNN-based segmentation methods, consume a great deal of time and effort. As for the task of semantic segmentation for a 3D scene given only limited annotated views, the CNN-based methods may overfit the views in the training data but generate poor results for the rest of the views. The key reason is that the 2D texture information or 2D context relationship is insufficient to identify similar-textured objects (Fig. (b)) in a 3D scene. Finally, the 3D context relationship of a scene is also crucial for semantic attribute prediction (Fig. (c)). For example, the building is typically higher than the road and the same object across different views usually has a similar texture. However, these properties have been rarely investigated in previous papers.
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <img src="my_data/abstract.PNG" style="float: right; margin-left:20px; margin-bottom: 10px" width="40%;" />
+          <p class="content has-text-justified">
+           The mainstream CNN-based remote sensing (RS) image semantic segmentation approaches typically rely on massive labeled training data. Such a paradigm struggles with the problem of RS multi-view scene segmentation with limited labeled views due to the lack of considering 3D information within the scene. In this paper, we propose ``Implicit Ray-Transformer (IRT)'' based on Implicit Neural Representation (INR), for RS scene semantic segmentation with sparse labels (such as 4-6 labels per 100 images). We explore a new way of introducing multi-view 3D structure priors to the task for accurate and view-consistent semantic segmentation. The proposed method includes a two-stage learning process. In the first stage, we optimize a neural field to encode the color and 3D structure of the remote sensing scene based on multi-view images. In the second stage, we design a Ray Transformer to leverage the relations between the neural field 3D features and 2D texture features for learning better semantic representations. Different from previous methods that only consider 3D prior or 2D features, we incorporate additional 2D texture information and 3D prior by broadcasting CNN features to different point features along the sampled ray. To verify the effectiveness of the proposed method, we construct a challenging dataset containing six synthetic sub-datasets collected from the Carla platform and three real sub-datasets from Google Maps. Experiments show that the proposed method outperforms the CNN-based methods and the state-of-the-art INR-based segmentation methods in quantitative and qualitative metrics. Ablation study shows that under limited label conditions, the combination of the 3D structure prior and 2D texture can significantly improve the performance and effectively complete missing semantic information in novel views. Experiments also demonstrate the proposed method could yield geometry-consistent segmentation results against illumination changes and viewpoint changes. Our data and code will be public.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<!--    <div class="columns is-centered has-text-centered">-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-3">Video</h2>-->
+<!--        <div class="publication-video">-->
+<!--          <iframe src="https://www.youtube.com/embed/WEgJf1WC5SQ"-->
+<!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="content">
+          <img src="my_data/pipeline.png" width="100%"/>
+        </div>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+           The proposed method has a two-stage learning process. We first optimize a color-INR of the target scene using multi-view RGB images, where the 3D context information is encoded in the weights of a set of MLPs. Then we employ a knowledge distillation strategy to convert color INR to semantic INR. In order to enhance the semantic consistency between multi-viewpoints. We design the Ray-Transformer to integrate and transfer the 3D ray-color features into ray-semantic features. Specially, we add a CNN texture token to broadcast texture information among different locations along a ray. Finally, we combine the 3D ray-semantic features from semantic-INR and 2D features from additional CNN to complete the missing semantic information in novel views and get more detail and accurate results.
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+
+<!--<section class="hero is-light is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container has-text-centered">-->
+<!--      &lt;!&ndash; <h2 class="title">Qualitative Results</h2> &ndash;&gt;-->
+<!--      <div id="results-carousel" class="carousel results-carousel">-->
+<!--        <div class="item rounded-0 border-0 item-sink">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/sink1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/sink2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/sink3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item rounded-0 border-0 item-piano">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/piano1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/piano2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/piano3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item rounded-0 border-0 item-light">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/light1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/light2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/light3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-stove">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stove1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stove2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stove3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-bucket">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/bucket1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/bucket2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/bucket3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <div class="item rounded-0 border-0 item-table">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/table1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/table2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/table3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--       &lt;!&ndash;  <div class="item rounded-0 border-0 item-chess">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <div class="item rounded-0 border-0 item-chess2">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess4.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/chess5.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-hat">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/hat1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/hat2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop height="100%" preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/hat3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <div class="item rounded-0 border-0 item-rock">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/rock1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/rock2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/rock3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="item rounded-0 border-0 item-statue">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-statue2">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue4.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/statue5.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <div class="item rounded-0 border-0 item-stairs">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stairs1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stairs2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/stairs3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-dumbbell">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/dumbbell1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/dumbbell2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/dumbbell3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--        <div class="item rounded-0 border-0 item-leaves">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/leaves1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/leaves2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/leaves3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; <div class="item rounded-0 border-0 item-fortress">-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/fortress1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/fortress2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <video poster="" autoplay muted loop preload="none" class="w-auto" style="height:22vh;">-->
+<!--            <source src="data/videos/fortress3.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div> &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+<br/>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop has-text-centered">
+    <br/>
+    <h2 class="title">Sample Scene from Our Dataset</h2>
+    <div class="row d-flex justify-content-between">
+      <div class=col-3>
+          <div class="row">
+              <div class="content has-text-justified">
+                  <img src="my_data/gif/8.gif" width="100%">
+                  <h5 class="subtitle has-text-centered">sys #1</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified">
+                 <img src="my_data/gif/11.gif" width="100%">
+                 <h5 class="subtitle has-text-centered">sys #4</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified">
+                <img src="my_data/gif/real1.gif" width="100%">
+                <h5 class="subtitle has-text-centered">real #1</h5>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-3">
+          <div class="row">
+              <div class="content has-text-justified">
+                <img src="my_data/gif/9.gif" width="100%">
+                <h5 class="subtitle has-text-centered">sys #2</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified" >
+                <img src="my_data/gif/12.gif" width="100%">
+                <h5 class="subtitle has-text-centered">sys #5</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified" >
+                <img src="my_data/gif/real2.gif" width="100%">
+                <h5 class="subtitle has-text-centered">sys #2</h5>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="col-3">
+          <div class="row">
+              <div class="content has-text-justified" >
+                <img src="my_data/gif/10.gif" width="100%">
+                <h5 class="subtitle has-text-centered">sys #3</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified">
+                <img src="my_data/gif/14.gif" width="100%">
+                <h5 class="subtitle has-text-centered">sys #6</h5>
+              </div>
+          </div>
+<br/>
+          <div class="row">
+              <div class="content has-text-justified">
+                <img src="my_data/gif/real3.gif" width="100%">
+                <h5 class="subtitle has-text-centered">real #3</h5>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<br/>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Results</h2>
+        <div class="content">
+          <img src="my_data/results.png" width="100%"/>
+        </div>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+          In this paper, we consider multi-view remote sensing image segmentation under sparse annotations and propose a new method based on implicit neural representation and transformer. We optimize the implicit volume representation of the 3D scene by fitting the posed RGB images into a neural network. Then a Ray-Transformer network combines the CNN features with the 3D volume representation to complete the missing information of the unknown views. To achieve this, we also introduce a challenging dataset for the R4S task. Extensive experimental results verify the effectiveness of our proposed method. The results demonstrate that our method outperforms other CNN-based methods in terms of both accuracy and robustness. We also compare different strategies to add texture information into INR feature space and show the effectiveness of the transformer structure for this task. Finally, our empirical results also indicate the robustness of our method against illumination and viewpoint changes in the scene.
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">More</h2>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+         More experiment results can be found in our paper
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+  </div>
+</section>
+
+
+<!--<section class="hero teaser">-->
+<!--  <div class="hero-body">-->
+<!--  <div class="container is-max-desktop has-text-centered">-->
+<!--    <h2 class="title">Inpainting Stages</h2>-->
+<!--      <div class="row d-flex justify-content-between">-->
+<!--        <div class=col-3>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/interactive_seg1.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/interactive_seg2.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/interactive_seg3.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <h2 class="subtitle has-text-centered">1) Interactive Segmentation</h2>-->
+<!--        </div>-->
+
+<!--        <div class="col-1 align-self-center">-->
+<!--          <svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">-->
+<!--            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>-->
+<!--          </svg>-->
+<!--        </div>-->
+
+<!--        <div class="col-3">-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/table3.mp4" type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/statue5.mp4" type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/statue3.mp4" type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <h2 class="subtitle has-text-centered">2) Multiview Segmentation</h2>-->
+<!--        </div>-->
+
+<!--        <div class="col-1 align-self-center">-->
+<!--          <svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">-->
+<!--            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>-->
+<!--          </svg>-->
+<!--        </div>-->
+
+<!--        <div class="col-3">-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/table2.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/statue4.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <video poster="" autoplay muted loop height="100%" class="rounded pb-1" preload="none">-->
+<!--              <source src="data/videos/statue2.mp4"-->
+<!--                      type="video/mp4">-->
+<!--            </video>-->
+<!--          </div>-->
+<!--          <h2 class="subtitle has-text-centered">3) Multiview Inpainting</h2>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<br/>-->
+
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop has-text-centered shadow-sm">-->
+<!--    <br/>-->
+<!--    <h2 class="title">Comparison to the Concurrent Work</h2>-->
+<!--      <div class="row">-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/hat1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/hat_nerfin_all.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/hat_nerfin_single.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/hat2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/fortress1.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <h5 class="subtitle">NeRF</h5>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/fortress_nerfin_all.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <h5 class="subtitle">NeRF-In</h5>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/fortress_nerfin_single.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <h5 class="subtitle">NeRF-In (Single)</h5>-->
+<!--        </div>-->
+<!--        <div class="col-3">-->
+<!--          <video poster="" autoplay muted loop height="100%" class="rounded" preload="none">-->
+<!--            <source src="data/videos/fortress2.mp4"-->
+<!--                    type="video/mp4">-->
+<!--          </video>-->
+<!--          <h5 class="subtitle">Ours</h5>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+<!--<br/>-->
+
+
+<!--<section class="hero teaser">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container is-max-desktop">-->
+<!--      <div class="column is-full">-->
+<!--        <h2 class="title has-text-centered">On the Importance of the Perceptual Loss</h2>-->
+<!--          <div class="row d-flex justify-content-around">-->
+<!--            <div class="content has-text-justified">-->
+<!--              <p class="content has-text-justified">Here, we demonstrate the importance of using the perceputal loss instead of direct MSE optimization on a 2D toy example. Consider the following RGB image and the synthetic square mask. Based on them, we create the 16 different possible 2D inapintings. Note that inpainting is an ill-posed problem and all of the following are plausible answers for the task of inpainting the image:</p>-->
+<!--            </div>-->
+<!--            <div class="col-4 p-1">-->
+<!--              <img src="data/toy_example/pattern.png">-->
+<!--              <h2 class="subtitle has-text-centered">Sample Image</h2>-->
+<!--            </div>-->
+<!--            <div class="col-4 p-1">-->
+<!--              <img src="data/toy_example/masked.png">-->
+<!--              <h2 class="subtitle has-text-centered">Masked Image</h2>-->
+<!--            </div>-->
+<!--            <div class="col-4 p-1">-->
+<!--              <img src="data/toy_example/grid.png">-->
+<!--              <h2 class="subtitle has-text-centered">16 Different Inpaintings</h2>-->
+<!--            </div>-->
+<!--            <div class="content has-text-justified">-->
+<!--              <p class="content">Now, we start optimizing an image based on these 16 outputs. In the first attempt, the Mean Squared Error (MSE) loss is used, while in the alternative approach, we use a perceptual loss as proposed in the paper for the masked region:</p>-->
+<!--            </div>-->
+<!--            <div class="row justify-content-around">-->
+<!--              <div class="col-8">-->
+<!--                <video poster="" muted controls preload="metadata" class="w-auto" style="">-->
+<!--                <source src="data/toy_example/toy.mp4"-->
+<!--                        type="video/mp4">-->
+<!--                </video>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="content has-text-justified">-->
+<!--              <p class="content">As evident in the results, even after these few steps of fitting the output image on the 16 input inpaintings, the perceptual loss has led to a more detailed and accurate texture. In contrast, the MSE loss has difficulties when facing inconsistent inputs, and has converged to a blurry inpainted region. This blurry area is close to the average of all of the inputs. </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{spinnerf,
+      title={{SPIn-NeRF}: Multiview Segmentation and Perceptual Inpainting with Neural Radiance Fields},
+      author={Ashkan Mirzaei and Tristan Aumentado-Armstrong and Konstantinos G. Derpanis and Jonathan Kelly and Marcus A. Brubaker and Igor Gilitschenski and Alex Levinshtein},
+      year={2023},
+      booktitle={CVPR},
+}</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://github.com/nesf3d/nesf3d.github.io">NeSF</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
