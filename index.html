@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="description"
         content="IRT.">
-  <meta name="keywords" content="NeRF, Inpainting, Segmentation, Perceptual Loss, LPIPS, Multli-View Inpainting, View Consistency, 3D Reconstruction">
+  <meta name="keywords" content="Diffusion models, Talking faces, Transformers">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IRT</title>
+  <title>DiffTalker</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -36,10 +36,13 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title text-muted">
             <span class="text-primary">߷</span>
-            <span class="text-dark">Implicit Ray-Transformers</span> for <span class="text-dark">M</span>ulti <span class="text-dark">V</span>iew <span class="text-dark">R</span>emote <span class="text-dark">S</span>ensing <span class="text-dark">I</span>mage <span class="text-dark">S</span>egementation
+
+            <!-- DIFFTALKER: CO-DRIVEN AUDIO-IMAGE DIFFUSION FOR TALKING FACES VIA
+INTERMEDIATE LANDMARKS -->
+            <span class="text-dark">DIFFTALKER:</span>CO-DRIVEN AUDIO-IMAGE DIFFUSION FOR TALKING FACING via INTERMEDIATE LANDMARKS
           </h1>
           <p class="is-size-5 text-center">
-	            Submittd to "IEEE Transactions on Geoscience and Remote Sensing"
+	            Submittd to "ICASSP 2024"
 		      </p>
 
           <!-- <p class="is-size-5 text-center">
@@ -50,15 +53,15 @@
             <span class="author-block">
               <a href="https://github.com/qizipeng">Zipeng Qi</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://justchenhao.github.io">Hao Chen</a><sup>1</sup>,</span>
+              <a href="https://largeaudiomodel.com/">Xulong Zhang</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://github.com/Chen-Yang-Liu">Chenyang Liu</a><sup>1</sup>,
+              <a href="https://largeaudiomodel.com/">Ning Cheng</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://levir.buaa.edu.cn/">Zhenwei Shi</a><sup>1</sup>,
+              <a href="https://largeaudiomodel.com/">Jing Xiao</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://zhengxiazou.github.io">Zouzheng Xia</a><sup>1</sup>,
+              <a href="https://largeaudiomodel.com/">Jianzong Wang</a><sup>2</sup>,
             </span>
           </div>
 
@@ -97,6 +100,7 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Beihang University,</span>
+            <span class="author-block"><sup>2</sup>Ping An Technology (Shenzhen) Co., Ltd.,</span>
 <!--            <span class="author-block"><sup>2</sup>University of Toronto,</span>-->
 <!--            <span class="author-block"><sup>3</sup>York University,</span>-->
 <!--            <span class="author-block"><sup>4</sup>Vector Institute for AI</span>-->
@@ -159,10 +163,9 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Method. -->
-    <div class="columns is-centered has-text-centered">
+<!-- <section class="section">
+  <div class="container is-max-desktop"> -->
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <h2 class="title is-3">Motivation</h2>
         <div class="content">
@@ -177,9 +180,8 @@
         </div>
       </div>
     </div>
-    <!--/ Method. -->
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -189,9 +191,26 @@
       <div class="column is-full">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <img src="my_data/abstract.PNG" style="float: right; margin-left:20px; margin-bottom: 10px" width="40%;" />
+          <!-- <img src="my_data/abstract.PNG" style="float: right; margin-left:20px; margin-bottom: 10px" width="40%;" /> -->
           <p class="content has-text-justified">
-           The mainstream CNN-based remote sensing (RS) image semantic segmentation approaches typically rely on massive labeled training data. Such a paradigm struggles with the problem of RS multi-view scene segmentation with limited labeled views due to the lack of considering 3D information within the scene. In this paper, we propose ``Implicit Ray-Transformer (IRT)'' based on Implicit Neural Representation (INR), for RS scene semantic segmentation with sparse labels (such as 4-6 labels per 100 images). We explore a new way of introducing multi-view 3D structure priors to the task for accurate and view-consistent semantic segmentation. The proposed method includes a two-stage learning process. In the first stage, we optimize a neural field to encode the color and 3D structure of the remote sensing scene based on multi-view images. In the second stage, we design a Ray Transformer to leverage the relations between the neural field 3D features and 2D texture features for learning better semantic representations. Different from previous methods that only consider 3D prior or 2D features, we incorporate additional 2D texture information and 3D prior by broadcasting CNN features to different point features along the sampled ray. To verify the effectiveness of the proposed method, we construct a challenging dataset containing six synthetic sub-datasets collected from the Carla platform and three real sub-datasets from Google Maps. Experiments show that the proposed method outperforms the CNN-based methods and the state-of-the-art INR-based segmentation methods in quantitative and qualitative metrics. Ablation study shows that under limited label conditions, the combination of the 3D structure prior and 2D texture can significantly improve the performance and effectively complete missing semantic information in novel views. Experiments also demonstrate the proposed method could yield geometry-consistent segmentation results against illumination changes and viewpoint changes. Our data and code will be public.
+           Generating realistic talking faces is a complex and widely
+            discussed task with numerous applications. In this paper,
+            we present DiffTalker, a novel model designed to generate
+            lifelike talking faces through audio and landmark co-driving.
+            DiffTalker addresses the challenges associated with directly
+            applying diffusion models to audio control, which are tradi-
+            tionally trained on text-image pairs. DiffTalker consists of
+            two agent networks: a transformer-based landmarks comple-
+            tion network for geometric accuracy and a diffusion-based
+            face generation network for texture details. Landmarks play
+            a pivotal role in establishing a seamless connection between
+            the audio and image domains, facilitating the incorporation of
+            knowledge from pre-trained diffusion models. This innova-
+            tive approach efficiently produces articulate-speaking faces.
+            Experimental results showcase DiffTalker’s superior perfor-
+            mance in producing clear and geometrically accurate talking
+            faces, all without the need for additional alignment between
+            audio and image features.
           </p>
         </div>
       </div>
@@ -216,14 +235,32 @@
     <!-- Method. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">Pipeline</h2>
+        <h2 class="title is-3">Method</h2>
         <div class="content">
-          <img src="my_data/pipeline.png" width="100%"/>
+          <img src="my_data/overview4.pdf" width="100%"/>
         </div>
         </br>
         <div class="content has-text-justified">
           <p>
-           The proposed method has a two-stage learning process. We first optimize a color-INR of the target scene using multi-view RGB images, where the 3D context information is encoded in the weights of a set of MLPs. Then we employ a knowledge distillation strategy to convert color INR to semantic INR. In order to enhance the semantic consistency between multi-viewpoints. We design the Ray-Transformer to integrate and transfer the 3D ray-color features into ray-semantic features. Specially, we add a CNN texture token to broadcast texture information among different locations along a ray. Finally, we combine the 3D ray-semantic features from semantic-INR and 2D features from additional CNN to complete the missing semantic information in novel views and get more detail and accurate results.
+            As illustrated in the above figure, we decompose DiffTalker into
+            two agent networks: (1) an audio-guided landmark predic-
+            tion network and (2) a landmark-guided face generation
+            network. The landmark prediction network takes the upper
+            half of the landmarks as input and generates the remaining
+            key points with the support of audio features. It comprises
+            three transformer-based modules, responsible for predicting
+            the lower half of the face (LF-Trans), establishing the basic
+            mouth shape (BM-Trans), and adjusting the mouth based on
+            audio input (AM-Trans). We view the landmark results as
+            supplementary information that assists the diffusion model
+            in generating precise facial geometry, particularly for mouth
+            shape. The diffusion-based face prediction network takes
+            both Gaussian noise and the predicted landmarks as input,
+            producing the facial texture. Similar to most methods,
+            the landmark features interact with image features through
+            cross-attention. By employing landmarks, we bridge the do-
+            main gap between the audio and image spaces without the
+            need for training an additional aligner network.
           </p>
           </br>
         </div>
@@ -471,9 +508,7 @@
 
 
 
-<br/>
-
-
+<!-- <br/>
 <section class="hero teaser">
   <div class="container is-max-desktop has-text-centered">
     <br/>
@@ -552,34 +587,135 @@
     </div>
   </div>
 </section>
-
-<br/>
+<br/> -->
 
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Method. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Results: Landmark completion</h2>
         <div class="content">
-          <img src="my_data/results.png" width="100%"/>
+          <img src="my_data/landmark_completion.png" width="60%"/>
         </div>
         </br>
         <div class="content has-text-justified">
           <p>
-          In this paper, we consider multi-view remote sensing image segmentation under sparse annotations and propose a new method based on implicit neural representation and transformer. We optimize the implicit volume representation of the 3D scene by fitting the posed RGB images into a neural network. Then a Ray-Transformer network combines the CNN features with the 3D volume representation to complete the missing information of the unknown views. To achieve this, we also introduce a challenging dataset for the R4S task. Extensive experimental results verify the effectiveness of our proposed method. The results demonstrate that our method outperforms other CNN-based methods in terms of both accuracy and robustness. We also compare different strategies to add texture information into INR feature space and show the effectiveness of the transformer structure for this task. Finally, our empirical results also indicate the robustness of our method against illumination and viewpoint changes in the scene.
+            The above figure presents a comparison between landmark completion
+            and ground truth. In the left portion of the results, it is evident
+            that the landmark completion network accurately predicts the
+            coordinates of the lower key points, which provide geometry
+            information for the subsequent face synthesis network. To as-
+            sess the impact of audio features on mouth key points, we use
+            mismatched landmarks and speech features as inputs, such
+            as employing the upper landmark of the 142_th frame and the
+            audio features of the 224_th frame. The third column of the
+            results demonstrates that the shape of the mouth accurately
+            aligns with the facial image, confirming the success of our
+            design by solely utilizing the offset of the mouth key points.
           </p>
           </br>
         </div>
       </div>
     </div>
-    <!--/ Method. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Results: Face synthesis</h2>
+        <div class="content">
+          <img src="my_data/face_synthesis.png" width="60%"/>
+        </div>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+            To assess the performance of the generated faces, we utilized
+            Five metrics: LSE-D, LSE-C, LD (The landmark distance be-
+            tween predictions and GTs), PSNR, and SSIM. From the below table,
+            we can find that our method (Ours2) outperforms the GAN-
+            based method and is close to the current diffusion model.
+            However, the DAE. needs additional training of an aligner for
+            audio features and image features. When we remove the land-
+            mark information and directly use the DeepSpeech features as
+            the controllable information (replacing the text prompt), the
+            performance of our model (Ours1) significantly deteriorates.
+            This underscores the efficiency of the landmark as additional
+            information. Figure 3 showcases the qualitative outcomes obtained
+            from our face synthesis network. The illustration highlights
+            that the generated faces exhibit a coherent geometric structure
+
+            The above figure showcases the qualitative outcomes obtained
+            from our face synthesis network. The illustration highlights
+            that the generated faces exhibit a coherent geometric structure
+            across various head poses, owing to the guidance from the
+            upper face and complete landmark information. The lower
+            part of the figure displays the landmark prediction results,
+            reflecting the geometric accuracy of the synthesized face.
+
+          </p>
+          </br>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Conculution</h2>
+        <div class="content">
+          <img src="my_data/face_synthesis.png" width="60%"/>
+        </div>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+            In this paper, we introduce DiffTalker, a co-driven diffusion
+            method tailored for generating talking faces. DiffTalker con-
+            sists of two sub-agents: a landmark completion network and
+            a face synthesis network. By harnessing landmarks, we es-
+            tablish a seamless connection between the audio domain and
+            images, thereby enhancing the network’s capability to gener-
+            ate precise geometry and mouth shape results. Experimental
+            results demonstrate DiffTalker’s exceptional performance in
+            producing clear and geometrically accurate talking faces, all
+            without the requirement for additional alignment between au-
+            dio and image features.
+          </p>
+        </div>
+        <div class="content">
+          <img src="my_data/table1.png" width="60%"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Method. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video Clips</h2>
+        </br>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <h2 class="title is-3">More</h2>
@@ -592,7 +728,6 @@
         </div>
       </div>
     </div>
-    <!--/ Method. -->
   </div>
 </section>
 
