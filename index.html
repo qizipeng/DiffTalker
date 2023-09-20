@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -112,7 +112,7 @@ INTERMEDIATE LANDMARKS -->
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2303.08401"
+                <a href="https://arxiv.org/pdf/2309.07509.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -660,6 +660,9 @@ INTERMEDIATE LANDMARKS -->
           </p>
           </br>
         </div>
+        <div class="content">
+          <img src="my_data/table1.png" width="60%"/>
+        </div>
       </div>
     </div>
   </div>
@@ -687,13 +690,32 @@ INTERMEDIATE LANDMARKS -->
             dio and image features.
           </p>
         </div>
-        <div class="content">
-          <img src="my_data/table1.png" width="60%"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Disscusion</h2>
+        </br>
+        <div class="content has-text-justified">
+          <p>
+            Our method can make full use of landmark information to generate images consistent with speech. Avoid unnecessary training of an equalizer for audio features and image features. 
+            However, there is still room for improvement in the continuity and consistency between frames of our method. 
+            This has a lot to do with the accuracy of landmark prediction and inter-frame continuity (there is a certain error in using the results of ffmep as ground truth itself). 
+            In future work, we will improve the inter-frame continuity of predicted landmarks to further ensure the quality of the videos we generate.
+          </p>
+          </br>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -704,6 +726,26 @@ INTERMEDIATE LANDMARKS -->
         </br>
       </div>
     </div>
+  <div style="display: flex; justify-content: space-between;">
+    <div>
+      <video width="300" controls>
+        <source src="my_data/38.mp4" type="video/mp4">
+      </video>
+      <p>the video clip of the predicted images.</p>
+    </div>
+    <div>
+      <video width="300" controls>
+        <source src="my_data/38_landmarks_predict.mp4" type="video/mp4">
+      </video>
+      <p> the video clip of the predicted landmarks.</p>
+    </div>
+    <div>
+      <video width="300" controls>
+        <source src="my_data/38_landmarks.mp4" type="video/mp4">
+      </video>
+      <p>the video clip of the ground truth.</p>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -715,13 +757,10 @@ INTERMEDIATE LANDMARKS -->
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">More</h2>
+        <h2 class="title is-3">More Results</h2>
         </br>
-        <div class="content has-text-justified">
-          <p>
-         More experiment results can be found in our paper
-          </p>
-          </br>
+        <div class="content">
+          <img src="my_data/moreresults.png" width="60%"/>
         </div>
       </div>
     </div>
@@ -927,21 +966,16 @@ INTERMEDIATE LANDMARKS -->
 <!--</section>-->
 
 
-
-
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{https://doi.org/10.48550/arxiv.2303.08401,
-  doi = {10.48550/ARXIV.2303.08401},
-  url = {https://arxiv.org/abs/2303.08401},
-  author = {Qi, Zipeng and Chen, Hao and Liu, Chenyang and Shi, Zhenwei and Zou, Zhengxia},
-  title = {Implicit Ray-Transformers for Multi-view Remote Sensing Image Segmentation},
-  publisher = {arXiv},
-  year = {2023}
+    <pre><code>@misc{
+      @article{qi2023difftalker,
+        title={DiffTalker: Co-driven audio-image diffusion for talking faces via intermediate landmarks},
+        author={Qi, Zipeng and Zhang, Xulong and Cheng, Ning and Xiao, Jing and Wang, Jianzong},
+        journal={arXiv preprint arXiv:2309.07509},
+        year={2023}
 }
-
 </code></pre>
   </div>
 </section>
